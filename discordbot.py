@@ -32,24 +32,24 @@ async def on_ready():
 
 
 # メッセージ受信時に動作する処理
-# @client.event
-# async def on_message(message):
+@client.event
+async def on_message(message):
     # メッセージ送信者がBotだった場合は無視する
-#     if message.author.bot:
-#         return
+    if message.author.bot:
+        return
     # メンション
-#     if message.content.startswith("つかさ、お疲れ様。"):
-#         await message.channel.send(str(message.author.mention) + "お疲れ。アタシの仕事はもう終わらせたけど、お前は？")
+    if message.content.startswith("つかさ、お疲れ様。"):
+        await message.channel.send(str(message.author.mention) + "お疲れ。アタシの仕事はもう終わらせたけど、お前は？")
     # wiki
-#     if message.content.startswith("!wiki"):
-#         await message.channel.send(WIKI)
+    if message.content.startswith("!wiki"):
+        await message.channel.send(WIKI)
     # 起動確認
-#     if message.content.startswith("/ping"):
-#         await message.channel.send("/pong")
+    if message.content.startswith("/ping"):
+        await message.channel.send("/pong")
     # 強制終了
-#     if message.content.startswith("!SHUTDOWN_BOT"):#!SHUTDOWN_BOTが入力されたら強制終了
-#         await client.logout()
-#         await sys.exit()
+    if message.content.startswith("!SHUTDOWN_BOT"):#!SHUTDOWN_BOTが入力されたら強制終了
+        await client.logout()
+        await sys.exit()
 
 # ボイスチャット入室退室時
 # @client.event
