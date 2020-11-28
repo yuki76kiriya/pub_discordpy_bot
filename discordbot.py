@@ -1,5 +1,8 @@
- インストールした discord.pyを読み込む
+# インストールした discord.pyを読み込む
 import discord
+from discord.ext import commands
+import os
+import traceback
 # 接続に必要なオブジェクトを作成
 # ------------------------------------------
 # intents=discord.Intents.all()
@@ -8,9 +11,10 @@ import discord
 client = discord.Client()
 
 # サーバーID
-SERVER_ID = 999999999999999999
+# SERVER_ID = 999999999999999999
 # トークン
-TOKEN = "[TOKEN]"
+TOKEN = os.environ['DISCORD_BOT_TOKEN']
+ENTRANCE_CHANNEL_ID = os.environ['DISCORD_BOT_CHANNEL_ID']
 
 # 起動時に動作する処理
 @client.event
@@ -77,4 +81,3 @@ async def on_ready():
 
 # Botの起動とDiscordサーバーへの接続
 client.run(TOKEN)
-
